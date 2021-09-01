@@ -25,8 +25,7 @@ import tbc.uncagedmist.testfragment.Model.WebSite;
 import tbc.uncagedmist.testfragment.R;
 
 class ListSourceViewHolder extends RecyclerView.ViewHolder
-        implements View.OnClickListener
-{
+        implements View.OnClickListener {
     ItemClickListener itemClickListener;
 
     TextView source_title;
@@ -74,26 +73,7 @@ public class ListSourceAdapter extends RecyclerView.Adapter<ListSourceViewHolder
     @Override
     public void onBindViewHolder(final ListSourceViewHolder holder, int position) {
 
-        StringBuilder iconBetterAPI = new StringBuilder("https://icons.better-idea.org/allicons.json?url=");
-        iconBetterAPI.append(webSite.getSources().get(position).getUrl());
 
-        mService.getIconUrl(iconBetterAPI.toString())
-                .enqueue(new Callback<IconBetterIdea>() {
-                    @Override
-                    public void onResponse(Call<IconBetterIdea> call, Response<IconBetterIdea> response) {
-                        if(response.body().getIcons().size() > 0)
-                        {
-                            Picasso.get()
-                                    .load(response.body().getIcons().get(0).getUrl())
-                                    .into(holder.source_image);
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<IconBetterIdea> call, Throwable t) {
-
-                    }
-                });
 
         holder.source_title.setText(webSite.getSources().get(position).getName());
 
@@ -106,7 +86,6 @@ public class ListSourceAdapter extends RecyclerView.Adapter<ListSourceViewHolder
                         .getSupportFragmentManager().beginTransaction();
 
                 Common.CURRENT_SOURCE_ID = webSite.getSources().get(position).getId();
-                Common.CURRENT_SORT_BY = webSite.getSources().get(position).getSortBysAvailable().get(0);
 
                 transaction.replace(R.id.mainLayout,secondFragment).commit();
 

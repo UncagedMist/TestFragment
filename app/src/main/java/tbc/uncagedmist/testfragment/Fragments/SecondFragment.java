@@ -48,7 +48,7 @@ public class SecondFragment extends Fragment {
     TextView top_author,top_title;
     SwipeRefreshLayout swipeRefreshLayout;
 
-    String source="",sortBy="",webHotURL="";
+    String source="",webHotURL="";
 
     ListNewsAdapter adapter;
     RecyclerView lstNews;
@@ -111,9 +111,8 @@ public class SecondFragment extends Fragment {
         lstNews.setLayoutManager(layoutManager);
 
         source = Common.CURRENT_SOURCE_ID;
-        sortBy = Common.CURRENT_SORT_BY;
 
-        if(!source.isEmpty() && !sortBy.isEmpty())
+        if(!source.isEmpty())
         {
             loadNews(source,false);
         }
@@ -125,7 +124,7 @@ public class SecondFragment extends Fragment {
         if(!isRefreshed)
         {
             dialog.show();
-            mService.getNewestArticles(Common.getAPIUrl(source,sortBy,Common.API_KEY))
+            mService.getNewestArticles(Common.getAPIUrl(source,Common.API_KEY))
                     .enqueue(new Callback<News>() {
                         @Override
                         public void onResponse(Call<News> call, Response<News> response) {
@@ -160,7 +159,7 @@ public class SecondFragment extends Fragment {
         else
         {
             dialog.show();
-            mService.getNewestArticles(Common.getAPIUrl(source,sortBy,Common.API_KEY))
+            mService.getNewestArticles(Common.getAPIUrl(source,Common.API_KEY))
                     .enqueue(new Callback<News>() {
                         @Override
                         public void onResponse(Call<News> call, Response<News> response) {

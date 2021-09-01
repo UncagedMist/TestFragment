@@ -1,35 +1,5 @@
 package tbc.uncagedmist.testfragment.Model;
 
-import java.util.List;
-
-class UrlsToLogos{
-    private String small,medium,large;
-
-    public String getSmall() {
-        return small;
-    }
-
-    public void setSmall(String small) {
-        this.small = small;
-    }
-
-    public String getMedium() {
-        return medium;
-    }
-
-    public void setMedium(String medium) {
-        this.medium = medium;
-    }
-
-    public String getLarge() {
-        return large;
-    }
-
-    public void setLarge(String large) {
-        this.large = large;
-    }
-}
-
 public class Source {
     private String id;
     private String name;
@@ -38,13 +8,11 @@ public class Source {
     private String category;
     private String language;
     private String country;
-    private UrlsToLogos urlsToLogos;
-    private List<String> sortBysAvailable;
 
     public Source() {
     }
 
-    public Source(String id, String name, String description, String url, String category, String language, String country, UrlsToLogos urlsToLogos, List<String> sortBysAvailable) {
+    public Source(String id, String name, String description, String url, String category, String language, String country) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -52,8 +20,6 @@ public class Source {
         this.category = category;
         this.language = language;
         this.country = country;
-        this.urlsToLogos = urlsToLogos;
-        this.sortBysAvailable = sortBysAvailable;
     }
 
     public String getId() {
@@ -110,21 +76,5 @@ public class Source {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public UrlsToLogos getUrlsToLogos() {
-        return urlsToLogos;
-    }
-
-    public void setUrlsToLogos(UrlsToLogos urlsToLogos) {
-        this.urlsToLogos = urlsToLogos;
-    }
-
-    public List<String> getSortBysAvailable() {
-        return sortBysAvailable;
-    }
-
-    public void setSortBysAvailable(List<String> sortBysAvailable) {
-        this.sortBysAvailable = sortBysAvailable;
     }
 }

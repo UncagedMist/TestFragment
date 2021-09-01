@@ -53,6 +53,7 @@ class ListNewsViewHolder extends RecyclerView.ViewHolder implements View.OnClick
 }
 
 public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
+
     private List<Article> articleList;
     private Context context;
 
@@ -80,16 +81,17 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
         else
             holder.article_title.setText(articleList.get(position).getTitle());
 
-        if(articleList.get(position).getPublishedAt() != null) {
-            Date date = null;
-            try {
-                date = ISO8601Parse.parse(articleList.get(position).getPublishedAt());
-            } catch (ParseException ex) {
-                ex.printStackTrace();
-            }
-
-            holder.article_time.setReferenceTime(date.getTime());
-        }
+//        if(articleList.get(position).getPublishedAt() != null) {
+//            Date date = null;
+//            try {
+//                date = ISO8601Parse.parse(articleList.get(position).getPublishedAt());
+//            } catch (ParseException ex) {
+//                ex.printStackTrace();
+//
+//            }
+//
+//            holder.article_time.setReferenceTime(date.getTime());
+//        }
 
         //Set Event Click
         holder.setItemClickListener(new ItemClickListener() {

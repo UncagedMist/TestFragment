@@ -24,16 +24,14 @@ public class Common {
         return IconBetterIdeaClient.getClient().create(IconBetterIdeaService.class);
     }
 
-    public static String getAPIUrl(String source,String sortBy,String apiKEY)
+
+    //https://newsapi.org/v2/top-headlines/sources?category=sports&sortBy=latest&apiKey=4f91baeac7724fe197d4de6e975d8b5b
+    public static String getAPIUrl(String category,String apiKEY)
     {
-        StringBuilder apiUrl = new StringBuilder("https://newsapi.org/v1/articles?source=");
-        return apiUrl.append(source)
-                .append("&sortBy=")
-                .append(sortBy)
+        StringBuilder apiUrl = new StringBuilder("https://newsapi.org/v2/top-headlines?sources=");
+        return apiUrl.append(category)
                 .append("&apiKey=")
                 .append(apiKEY)
                 .toString();
     }
-
-
 }
