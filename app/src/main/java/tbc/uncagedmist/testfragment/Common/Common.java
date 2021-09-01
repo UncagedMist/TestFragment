@@ -1,13 +1,10 @@
 package tbc.uncagedmist.testfragment.Common;
 
-import tbc.uncagedmist.testfragment.Interface.IconBetterIdeaService;
 import tbc.uncagedmist.testfragment.Interface.NewsService;
-import tbc.uncagedmist.testfragment.Remote.IconBetterIdeaClient;
 import tbc.uncagedmist.testfragment.Remote.RetrofitClient;
 
 public class Common {
     public static String CURRENT_WEB_HOT_URL;
-    public static  String CURRENT_SORT_BY;
     public static String CURRENT_SOURCE_ID;
 
     private static final String BASE_URL="https://newsapi.org/";
@@ -17,11 +14,6 @@ public class Common {
     public static NewsService getNewsService()
     {
         return RetrofitClient.getClient(BASE_URL).create(NewsService.class);
-    }
-
-    public static IconBetterIdeaService getIconService()
-    {
-        return IconBetterIdeaClient.getClient().create(IconBetterIdeaService.class);
     }
 
 

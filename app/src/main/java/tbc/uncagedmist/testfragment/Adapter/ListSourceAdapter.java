@@ -10,17 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
-
 import de.hdodenhof.circleimageview.CircleImageView;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import tbc.uncagedmist.testfragment.Common.Common;
 import tbc.uncagedmist.testfragment.Fragments.SecondFragment;
-import tbc.uncagedmist.testfragment.Interface.IconBetterIdeaService;
 import tbc.uncagedmist.testfragment.Interface.ItemClickListener;
-import tbc.uncagedmist.testfragment.Model.IconBetterIdea;
 import tbc.uncagedmist.testfragment.Model.WebSite;
 import tbc.uncagedmist.testfragment.R;
 
@@ -54,13 +47,10 @@ public class ListSourceAdapter extends RecyclerView.Adapter<ListSourceViewHolder
     private Context context;
     private WebSite webSite;
 
-    private IconBetterIdeaService mService;
 
     public ListSourceAdapter(Context context, WebSite webSite) {
         this.context = context;
         this.webSite = webSite;
-
-        mService = Common.getIconService();
     }
 
     @Override

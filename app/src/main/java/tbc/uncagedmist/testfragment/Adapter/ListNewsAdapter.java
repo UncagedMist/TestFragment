@@ -1,11 +1,13 @@
 package tbc.uncagedmist.testfragment.Adapter;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,9 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.github.curioustechizen.ago.RelativeTimeTextView;
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import tbc.uncagedmist.testfragment.Common.Common;
@@ -81,17 +88,22 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsViewHolder> {
         else
             holder.article_title.setText(articleList.get(position).getTitle());
 
-//        if(articleList.get(position).getPublishedAt() != null) {
-//            Date date = null;
-//            try {
-//                date = ISO8601Parse.parse(articleList.get(position).getPublishedAt());
-//            } catch (ParseException ex) {
-//                ex.printStackTrace();
-//
-//            }
-//
-//            holder.article_time.setReferenceTime(date.getTime());
-//        }
+        if(articleList.get(position).getPublishedAt() != null) {
+            Date date = null;
+            try {
+                date = ISO8601Parse.parse(articleList.get(position).getPublishedAt());
+            } catch (ParseException ex) {
+                ex.printStackTrace();
+
+            }
+
+            try {
+                holder.article_time.setReferenceTime(date.getTime());
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
         //Set Event Click
         holder.setItemClickListener(new ItemClickListener() {
